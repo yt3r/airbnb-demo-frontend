@@ -33,6 +33,7 @@ export const Cards = styled.div`
   position: relative;
   a:first-of-type {
     padding-left: 0px;
+    margin-left: 0px;
   }
 `;
 

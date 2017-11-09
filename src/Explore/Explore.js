@@ -18,7 +18,7 @@ const Card = CardBase.extend`
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
-  margin-right: 18px;
+  margin-left: 18px;
   overflow: hidden;
 `;
 
@@ -31,23 +31,21 @@ const CardText = styled.p`
   margin-bottom: auto;
 `;
 
+const ExploreCard = props => (
+  <Card>
+    <Img src={props.src} alt={props.name} />
+    <CardText>{props.name}</CardText>
+  </Card>
+);
+
 export default () => {
   return (
     <Explore>
       <H1>Explore Airbnb</H1>
       <Cards>
-        <Card>
-          <Img src={homes} alt="Homes pic" />
-          <CardText>Homes</CardText>
-        </Card>
-        <Card>
-          <Img src={experiences} alt="Experiences pic" />
-          <CardText>Experiences</CardText>
-        </Card>
-        <Card>
-          <Img src={restaraunts} alt="Restaraunts pic" />
-          <CardText>Restaraunts</CardText>
-        </Card>
+        <ExploreCard src={homes} name="Homes" />
+        <ExploreCard src={experiences} name="Experiences" />
+        <ExploreCard src={restaraunts} name="Restaraunts" />
       </Cards>
     </Explore>
   );
