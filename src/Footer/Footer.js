@@ -1,32 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { SectionContainerBase, Dropdown } from "../styled";
+import { SectionContainerBase, Cards, Dropdown } from "../styled";
 import logo from "./logo.svg";
 import fb from "./facebook.svg";
 import twitter from "./twitter.svg";
 import ig from "./instagram.svg";
 
-const FooterBase = SectionContainerBase.withComponent("footer");
-const Footer = FooterBase.extend`
+const Footer = SectionContainerBase.withComponent("footer").extend`
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
+  padding: 16px 80px;
 `;
 
-const Top = styled.section`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  box-sizing: border-box;
-  padding-top: 48px;
-  padding-bottom: 48px;
-`;
+const Top = Cards.extend`padding-top: 48px;`;
 
 const Nav = styled.nav`
   display: flex;
   flex-basis: 25%;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 95px;
   flex-direction: column;
   box-sizing: border-box;
 `;
@@ -38,10 +30,11 @@ const Text = styled.p.attrs({
   line-height: 18px;
   padding-top: 8px;
   padding-bottom: 8px;
+  color: rgba(56, 56, 56, 1);
   font-weight: ${props => props.weight};
 `;
 
-const H4 = Text.withComponent("h4");
+const H4 = Text.withComponent("h4").extend`margin-top:0;`;
 
 const Link = Text.withComponent("a").extend`
   text-decoration: none;
@@ -50,7 +43,7 @@ const Link = Text.withComponent("a").extend`
 
 const BottomLink = Link.extend`padding-left: 16px;`;
 
-const Form = Nav.withComponent("form");
+const Form = Nav.withComponent("form").extend`padding-left:0;`;
 
 const Bottom = styled.div`
   display: flex;
@@ -58,6 +51,9 @@ const Bottom = styled.div`
   box-sizing: border-box;
   justify-content: space-between;
   align-content: center;
+  margin-top: 48px;
+  padding-top: 35px;
+  box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
 `;
 
 const Logo = styled.img``;

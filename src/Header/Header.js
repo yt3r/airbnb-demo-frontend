@@ -8,7 +8,6 @@ const Header = styled.header`
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   padding: 16px 80px;
   font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -21,7 +20,6 @@ const Header = styled.header`
 const Logo = styled.img`
   width: 30px;
   height: 32px;
-  vertical-align: middle;
 `;
 
 const Input = styled.input`
@@ -33,7 +31,8 @@ const Input = styled.input`
   box-sizing: border-box;
   font-size: 16px;
   line-height: 24px;
-  flex-basis: 41.6667%;
+  width: 40%;
+  margin-left: 20px;
   height: 48px;
   font-family: inherit;
 `;
@@ -46,11 +45,7 @@ const Link = styled.a`
   padding: 0 8px;
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  flex-basis: 50%;
-`;
+const Nav = styled.nav`margin-left: auto;`;
 
 export default () => {
   return (

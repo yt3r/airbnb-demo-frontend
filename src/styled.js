@@ -23,18 +23,20 @@ export const CardBase = styled.a.attrs({
   border-sizing: border-box;
   text-decoration: none;
   color: rgba(56, 56, 56, 1);
+  padding-left: 8px;
+  padding-right: 8px;
 `;
 
 export const H1 = styled.h1`line-height: 34px;`;
+
+export const Img = styled.img`width: 100%;`;
 
 export const Cards = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  a:first-of-type {
-    padding-left: 0px;
-    margin-left: 0px;
-  }
+  margin-left: -8px;
+  margin-right: -8px;
 `;
 
 const Star = styled.img.attrs({
@@ -123,10 +125,12 @@ export const SectionHead = styled.div`
 export const Dropdown = styled.select`
   box-sizing: border-box;
   appearance: none;
+  ::-ms-expand {
+    display: none;
+  }
   background: transparent;
   font-size: 18px;
   line-height: 21px;
-  font-weight: 300;
   height: 48px;
   width: 100%;
   background: url(${arrowDown}) no-repeat 90%;
@@ -134,4 +138,7 @@ export const Dropdown = styled.select`
   border-radius: 4px;
   margin-bottom: 16px;
   padding-left: 16px;
+  font-family: inherit;
+  color: rgba(56, 56, 56, 1);
+  font-weight: 300;
 `;

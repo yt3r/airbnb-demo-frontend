@@ -4,6 +4,7 @@ import {
   SectionContainerBase,
   CardBase,
   H1,
+  Img,
   Cards,
   Stars,
   Rating,
@@ -24,19 +25,16 @@ const Homes = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = CardBase.extend`
-  flex-basis: 33.3333%;
-  padding-left: 8px;
-`;
+const Card = CardBase.extend`flex-basis: 33.3333%;`;
 
 const HomesCard = props => (
   <Card>
     <Img src={props.src} alt={props.name} />
     <Info>
-      {props.price} {props.name}
+      ${props.price} {props.name}
     </Info>
     <Description>
-      {props.type} &middot; {props.beds}
+      {props.type} &middot; {props.beds} {props.beds > 1 ? "beds" : "bed"}
     </Description>
     <Rating>
       <Stars />
@@ -46,8 +44,6 @@ const HomesCard = props => (
     </Rating>
   </Card>
 );
-
-const Img = styled.img`width: 100%;`;
 
 export default () => {
   return (
@@ -61,29 +57,29 @@ export default () => {
       <Cards>
         <HomesCard
           src={home01}
-          price="$89"
+          price={89}
           name="La Salentina, see, nature & relax"
           type="Entire house"
-          beds="9 beds"
-          rating="97"
+          beds={9}
+          rating={97}
           status="Superhost"
         />
         <HomesCard
           src={home02}
-          price="$89"
+          price={89}
           name="Your private 3 bedr."
           type="Entire house"
-          beds="5 beds"
-          rating="161"
+          beds={5}
+          rating={161}
           status="Superhost"
         />
         <HomesCard
           src={home03}
-          price="$200"
+          price={200}
           name="Dreamy Tropical Tree House"
           type="Entire treehouse"
-          beds="1 bed"
-          rating="364"
+          beds={1}
+          rating={364}
           status="Superhost"
         />
         <Scroll />

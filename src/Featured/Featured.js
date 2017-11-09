@@ -4,6 +4,7 @@ import {
   SectionContainerBase,
   CardBase,
   H1,
+  Img,
   Cards,
   Info,
   Scroll
@@ -20,43 +21,26 @@ const Featured = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = CardBase.extend`
-  flex-basis: 16.6667%;
-  padding-right: 8px;
-  padding-left: 8px;
-`;
+const Card = CardBase.extend`flex-basis: 16.6667%;`;
 
-const Img = styled.img`width: 100%;`;
+const FeaturedCard = props => (
+  <Card>
+    <Img src={props.src} alt={props.name} />
+    <Info>{props.name}</Info>
+  </Card>
+);
 
 export default () => {
   return (
     <Featured>
       <H1>Featured destinations</H1>
       <Cards>
-        <Card>
-          <Img src={paris} alt="Paris" />
-          <Info>Paris</Info>
-        </Card>
-        <Card>
-          <Img src={miami} alt="Miami" />
-          <Info>Miami</Info>
-        </Card>
-        <Card>
-          <Img src={tokyo} alt="Tokyo" />
-          <Info>Tokyo</Info>
-        </Card>
-        <Card>
-          <Img src={capeTown} alt="Cape town" />
-          <Info>Cape town</Info>
-        </Card>
-        <Card>
-          <Img src={seoul} alt="Seoul" />
-          <Info>Seoul</Info>
-        </Card>
-        <Card>
-          <Img src={losAngeles} alt="Los Angeles" />
-          <Info>Los Angeles</Info>
-        </Card>
+        <FeaturedCard src={paris} name="Paris" />
+        <FeaturedCard src={miami} name="Miami" />
+        <FeaturedCard src={tokyo} name="Tokyo" />
+        <FeaturedCard src={capeTown} name="Cape town" />
+        <FeaturedCard src={seoul} name="Seoul" />
+        <FeaturedCard src={losAngeles} name="Los Angeles" />
         <Scroll />
       </Cards>
     </Featured>

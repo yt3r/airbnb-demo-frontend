@@ -9,6 +9,7 @@ import {
   SectionContainerBase,
   CardBase,
   H1,
+  Img,
   Cards,
   Stars,
   Rating,
@@ -25,15 +26,23 @@ const Experiences = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = CardBase.extend`
-  flex-basis: 25%;
-  padding-right: 8px;
-  padding-left: 8px;
-`;
-
-const Img = styled.img`width: 100%;`;
+const Card = CardBase.extend`flex-basis: 25%;`;
 
 const Span = styled.span`font-weight: 300;`;
+
+const ExperiencesCard = props => (
+  <Card>
+    <Img src={props.src} alt={props.name} />
+    <Info>
+      ${props.price}
+      <Span> {props.name}</Span>
+    </Info>
+    <Rating>
+      <Stars />
+      <RatingInfo>{props.rating} reviews</RatingInfo>
+    </Rating>
+  </Card>
+);
 
 export default () => {
   return (
@@ -45,50 +54,30 @@ export default () => {
         </Link>
       </SectionHead>
       <Cards>
-        <Card>
-          <Img src={forestTherapy} alt="Forest therapy pic" />
-          <Info>
-            $29
-            <Span> Forest therapy</Span>
-          </Info>
-          <Rating>
-            <Stars />
-            <RatingInfo>44 reviews</RatingInfo>
-          </Rating>
-        </Card>
-        <Card>
-          <Img src={whaleWatching} alt="Whale watching pic" />
-          <Info>
-            $69
-            <Span> Whale watching</Span>
-          </Info>
-          <Rating>
-            <Stars />
-            <RatingInfo>46 reviews</RatingInfo>
-          </Rating>
-        </Card>
-        <Card>
-          <Img src={mountain} alt="Mountain pic" />
-          <Info>
-            $69
-            <Span> Table Mountain Summit, Cable Car Down</Span>
-          </Info>
-          <Rating>
-            <Stars />
-            <RatingInfo>44 reviews</RatingInfo>
-          </Rating>
-        </Card>
-        <Card>
-          <Img src={salsaNight} alt="Salsa night pic" />
-          <Info>
-            $50
-            <Span> Salsa night</Span>
-          </Info>
-          <Rating>
-            <Stars />
-            <RatingInfo>44 reviews</RatingInfo>
-          </Rating>
-        </Card>
+        <ExperiencesCard
+          src={forestTherapy}
+          name="Forest therapy"
+          price={29}
+          rating={44}
+        />
+        <ExperiencesCard
+          src={whaleWatching}
+          name="Whale watching"
+          price={69}
+          rating={46}
+        />
+        <ExperiencesCard
+          src={mountain}
+          name="Table Mountain Summit, Cable Car Down"
+          price={69}
+          rating={44}
+        />
+        <ExperiencesCard
+          src={salsaNight}
+          name="Salsa night"
+          price={50}
+          rating={44}
+        />
         <Scroll />
       </Cards>
     </Experiences>

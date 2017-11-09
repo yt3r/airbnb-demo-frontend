@@ -4,6 +4,7 @@ import {
   SectionContainerBase,
   CardBase,
   H1,
+  Img,
   Cards,
   Arrow,
   Link,
@@ -20,13 +21,7 @@ const Popular = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = CardBase.extend`
-  flex-basis: 25%;
-  padding-right: 8px;
-  padding-left: 8px;
-`;
-
-const Img = styled.img`width: 100%;`;
+const Card = CardBase.extend`flex-basis: 25%;`;
 
 const Category = styled.p`
   font-size: 10px;
@@ -41,6 +36,15 @@ const Name = styled.p`
 `;
 const Pricing = Name.extend`font-weight: 300;`;
 
+const PopularCard = props => (
+  <Card>
+    <Img src={props.src} alt={props.name} />
+    <Category>{props.category.toUpperCase()}</Category>
+    <Name>{props.name}</Name>
+    <Pricing>About ${props.price} per person</Pricing>
+  </Card>
+);
+
 export default () => {
   return (
     <Popular>
@@ -51,30 +55,30 @@ export default () => {
         </Link>
       </SectionHead>
       <Cards>
-        <Card>
-          <Img src={chumley} alt="Chumley" />
-          <Category>SPEAKEASY</Category>
-          <Name>Chumley's</Name>
-          <Pricing>About $60 per person</Pricing>
-        </Card>
-        <Card>
-          <Img src={hanjan} alt="Hanjan" />
-          <Category>KOREAN GASTROPUB</Category>
-          <Name>Hanjan</Name>
-          <Pricing>About $50 per person</Pricing>
-        </Card>
-        <Card>
-          <Img src={primeMeats} alt="Prime Meats" />
-          <Category>GERMAN AMERICAN</Category>
-          <Name>Prime Meats</Name>
-          <Pricing>About $55 per person</Pricing>
-        </Card>
-        <Card>
-          <Img src={seaprice} alt="Seaprice" />
-          <Category>FINE SEAFOOD</Category>
-          <Name>Seaprice</Name>
-          <Pricing>About $70 per person</Pricing>
-        </Card>
+        <PopularCard
+          src={chumley}
+          name="Chumley's"
+          category="speakeasy"
+          price={60}
+        />
+        <PopularCard
+          src={hanjan}
+          name="Hanjan"
+          category="korean gastropub"
+          price={50}
+        />
+        <PopularCard
+          src={primeMeats}
+          name="Prime Meats"
+          category="german american"
+          price={55}
+        />
+        <PopularCard
+          src={seaprice}
+          name="Seaprice"
+          category="fine seafood"
+          price={70}
+        />
         <Scroll />
       </Cards>
     </Popular>
