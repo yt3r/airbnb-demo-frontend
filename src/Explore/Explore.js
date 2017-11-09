@@ -1,37 +1,30 @@
 import React from "react";
-import "../fonts/fonts.css";
 import styled from "styled-components";
+import homes from "./homes.png";
+import experiences from "./experiences.png";
+import restaraunts from "./restaraunts.png";
+import { SectionContainerBase, H1, Cards } from "../styled";
 
-const Explore = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 48px;
-  width: 964px;
-  font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-weight: 600;
-  line-height: 24px;
-`;
-
-const H1 = styled.h1`line-height: 34px;`;
-
-const Cards = styled.div`
-  display: flex;
+const Explore = SectionContainerBase.extend`
+  flex-direction: column;
   justify-content: space-between;
 `;
 
 const Card = styled.div`
-  width: 310px;
+  height: 72px;
+  flex-basis: 33.3333%;
   border: 1px solid rgba(72, 72, 72, 0.2);
   border-sizing: border-box;
-  border-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
+  margin-right: 18px;
+  overflow: hidden;
 `;
 
 const Img = styled.img`
-  width: 96px;
-  height: 72px;
+  height: 100%;
   background-color: rgba(255, 90, 95, 1);
 `;
 
@@ -48,15 +41,15 @@ export default () => {
       <H1>Explore Airbnb</H1>
       <Cards>
         <Card>
-          <Img alt="Homes pic" />
+          <Img src={homes} alt="Homes pic" />
           <CardText>Homes</CardText>
         </Card>
         <Card>
-          <Img alt="Experiences pic" />
+          <Img src={experiences} alt="Experiences pic" />
           <CardText>Experiences</CardText>
         </Card>
         <Card>
-          <Img alt="Restaraunts pic" />
+          <Img src={restaraunts} alt="Restaraunts pic" />
           <CardText>Restaraunts</CardText>
         </Card>
       </Cards>

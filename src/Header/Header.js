@@ -12,7 +12,7 @@ const Header = styled.header`
   align-items: center;
   padding: 16px 80px;
   font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   margin-left: auto;
   margin-right: auto;
   width: 964px;
@@ -21,12 +21,13 @@ const Header = styled.header`
 const Logo = styled.img`
   width: 30px;
   height: 32px;
+  vertical-align: middle;
 `;
 
 const Input = styled.input`
   background-image: url(${search});
   background-repeat: no-repeat;
-  background-position: 16.2px center;
+  background-position: 16px center;
   padding-left: 53px;
   border-radius: 4px;
   border: 1px solid rgba(72, 72, 72, 0.2);
@@ -34,7 +35,7 @@ const Input = styled.input`
   box-sizing: border-box;
   font-size: 16px;
   line-height: 24px;
-  width: 392px;
+  flex-basis: 41.6667%;
   height: 48px;
   font-family: inherit;
 `;
@@ -48,8 +49,8 @@ const Link = styled.a`
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-around;
-  width: 300px;
+  justify-content: space-between;
+  flex-basis: 33.3333%;
 `;
 
 export default () => {
