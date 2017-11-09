@@ -1,8 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { SectionContainerBase, H1, Cards } from "../styled";
-import capeTown from "./cape-town.png";
-import losAngeles from "./los-angeles.png";
+import {
+  SectionContainerBase,
+  CardBase,
+  H1,
+  Cards,
+  Info,
+  Scroll
+} from "../styled";
+import capeTown from "./capeTown.png";
+import losAngeles from "./losAngeles.png";
 import miami from "./miami.png";
 import paris from "./paris.png";
 import seoul from "./seoul.png";
@@ -13,9 +20,8 @@ const Featured = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = styled.div`
+const Card = CardBase.extend`
   flex-basis: 16.6667%;
-  box-sizing: border-box;
   padding-right: 8px;
   padding-left: 8px;
 `;
@@ -29,28 +35,29 @@ export default () => {
       <Cards>
         <Card>
           <Img src={paris} alt="Paris" />
-          <p>Paris</p>
+          <Info>Paris</Info>
         </Card>
         <Card>
           <Img src={miami} alt="Miami" />
-          <p>Miami</p>
+          <Info>Miami</Info>
         </Card>
         <Card>
           <Img src={tokyo} alt="Tokyo" />
-          <p>Tokyo</p>
+          <Info>Tokyo</Info>
         </Card>
         <Card>
           <Img src={capeTown} alt="Cape town" />
-          <p>Cape town</p>
+          <Info>Cape town</Info>
         </Card>
         <Card>
           <Img src={seoul} alt="Seoul" />
-          <p>Seoul</p>
+          <Info>Seoul</Info>
         </Card>
         <Card>
           <Img src={losAngeles} alt="Los Angeles" />
-          <p>Los Angeles</p>
+          <Info>Los Angeles</Info>
         </Card>
+        <Scroll />
       </Cards>
     </Featured>
   );

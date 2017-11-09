@@ -1,23 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import forestTherapy from "./forest-therapy.png";
-import whaleWatching from "./whale-watching.png";
+import forestTherapy from "./forestTherapy.png";
+import whaleWatching from "./whaleWatching.png";
 import mountain from "./mountain.png";
-import salsaNight from "./salsa-night.png";
+import salsaNight from "./salsaNight.png";
 
 import {
   SectionContainerBase,
+  CardBase,
   H1,
   Cards,
   Stars,
   Rating,
   Arrow,
   Link,
-  Scroll,
-  ScrollArrow,
   Info,
   RatingInfo,
-  SectionHead
+  SectionHead,
+  Scroll
 } from "../styled";
 
 const Experiences = SectionContainerBase.extend`
@@ -25,9 +25,8 @@ const Experiences = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = styled.div`
+const Card = CardBase.extend`
   flex-basis: 25%;
-  box-sizing: border-box;
   padding-right: 8px;
   padding-left: 8px;
 `;
@@ -90,9 +89,7 @@ export default () => {
             <RatingInfo>44 reviews</RatingInfo>
           </Rating>
         </Card>
-        <Scroll>
-          <ScrollArrow />
-        </Scroll>
+        <Scroll />
       </Cards>
     </Experiences>
   );

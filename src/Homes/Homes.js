@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {
   SectionContainerBase,
+  CardBase,
   H1,
   Cards,
   Stars,
@@ -11,7 +12,9 @@ import {
   Info,
   Description,
   RatingInfo,
-  SectionHead
+  SectionHead,
+  Scroll,
+  ScrollArrow
 } from "../styled";
 import home01 from "./home-1.png";
 import home02 from "./home-2.png";
@@ -22,9 +25,8 @@ const Homes = SectionContainerBase.extend`
   justify-content: space-between;
 `;
 
-const Card = styled.div`
+const Card = CardBase.extend`
   flex-basis: 33.3333%;
-  box-sizing: border-box;
   padding-right: 8px;
   padding-left: 8px;
 `;
@@ -68,6 +70,7 @@ export default () => {
             <RatingInfo>364 &middot; Superhost</RatingInfo>
           </Rating>
         </Card>
+        <Scroll />
       </Cards>
     </Homes>
   );

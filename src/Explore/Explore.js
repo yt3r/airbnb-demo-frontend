@@ -3,18 +3,17 @@ import styled from "styled-components";
 import homes from "./homes.png";
 import experiences from "./experiences.png";
 import restaraunts from "./restaraunts.png";
-import { SectionContainerBase, H1, Cards } from "../styled";
+import { SectionContainerBase, H1, Cards, CardBase } from "../styled";
 
 const Explore = SectionContainerBase.extend`
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const Card = styled.div`
+const Card = CardBase.extend`
   height: 72px;
   flex-basis: 33.3333%;
   border: 1px solid rgba(72, 72, 72, 0.2);
-  border-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
   display: flex;
@@ -23,13 +22,10 @@ const Card = styled.div`
   overflow: hidden;
 `;
 
-const Img = styled.img`
-  height: 100%;
-  background-color: rgba(255, 90, 95, 1);
-`;
+const Img = styled.img`height: 100%;`;
 
 const CardText = styled.p`
-  width: 189px;
+  width: 60%;
   font-size: 17px;
   margin-top: auto;
   margin-bottom: auto;

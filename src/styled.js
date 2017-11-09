@@ -4,7 +4,7 @@ import styled from "styled-components";
 import star from "./star.svg";
 import arrow from "./arrow.svg";
 import scroll from "./scroll.svg";
-import arrowDown from "./arrow-down.svg";
+import arrowDown from "./arrowDown.svg";
 
 export const SectionContainerBase = styled.section`
   margin-right: auto;
@@ -17,11 +17,20 @@ export const SectionContainerBase = styled.section`
   display: flex;
 `;
 
+export const CardBase = styled.a.attrs({
+  href: "#"
+})`
+  border-sizing: border-box;
+  text-decoration: none;
+  color: rgba(56, 56, 56, 1);
+`;
+
 export const H1 = styled.h1`line-height: 34px;`;
 
 export const Cards = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 
 const Star = styled.img.attrs({
@@ -76,12 +85,15 @@ export const ScrollArrow = styled.img.attrs({
 export const Scroll = styled.a`
   width: 40px;
   height: 40px;
+  background: url(${scroll}) center no-repeat;
   border: 0.5px solid rgba(72, 72, 72, 0.2);
   box-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
   border-radius: 50%;
   position: absolute;
   z-index: 100;
+  top: 30%;
+  left: 98%;
 `;
 
 export const Info = styled.p`
@@ -105,8 +117,17 @@ export const SectionHead = styled.div`
 `;
 
 export const Dropdown = styled.select`
-  border: 1px solid rgba(72, 72, 72, 0.2);
   box-sizing: border-box;
-  border-radius: 4px;
+  appearance: none;
+  background: transparent;
   font-size: 18px;
+  line-height: 21px;
+  font-weight: 300;
+  height: 48px;
+  width: 100%;
+  background: url(${arrowDown}) no-repeat 90%;
+  border: 1px solid rgba(72, 72, 72, 0.2);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  padding-left: 16px;
 `;
