@@ -25,9 +25,7 @@ const Logo = styled.img`
 `;
 
 const Input = styled.input`
-  background-image: url(${search});
-  background-repeat: no-repeat;
-  background-position: 16px center;
+  background: url(${search}) no-repeat 16px center;
   padding-left: 53px;
   border-radius: 4px;
   border: 1px solid rgba(72, 72, 72, 0.2);
@@ -45,12 +43,13 @@ const Link = styled.a`
   line-height: 24px;
   text-decoration: none;
   color: rgba(56, 56, 56, 1);
+  padding: 0 8px;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
-  flex-basis: 33.3333%;
+  justify-content: flex-end;
+  flex-basis: 50%;
 `;
 
 export default () => {
