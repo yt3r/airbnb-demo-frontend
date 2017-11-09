@@ -31,6 +31,9 @@ export const Cards = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  a:first-of-type {
+    padding-left: 0px;
+  }
 `;
 
 const Star = styled.img.attrs({
