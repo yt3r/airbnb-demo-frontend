@@ -10,7 +10,9 @@ import Footer from "./Footer";
 import "./App.css";
 import "flexboxgrid2";
 
-const Main = styled.main``;
+const Main = styled.main.attrs({
+  className: "container"
+})``;
 
 class App extends Component {
   render() {

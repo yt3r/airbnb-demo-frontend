@@ -5,7 +5,10 @@ import experiences from "./experiences.png";
 import restaraunts from "./restaraunts.png";
 import { SectionBase, H1, Cards, CardBase, mediaMin } from "../styled";
 
-const Explore = SectionBase.extend`flex-direction: column;`;
+const Explore = SectionBase.extend`
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const CardSt = CardBase.extend.attrs({
   className: "col-xs-5 col-lg-4"
@@ -15,10 +18,10 @@ const CardSt = CardBase.extend.attrs({
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
+  ${mediaMin.md`flex-direction: row;`};
   padding-left: 0;
   padding-right: 0;
-  ${mediaMin.md`flex-direction: row; `};
 `;
 
 const Img = styled.img`

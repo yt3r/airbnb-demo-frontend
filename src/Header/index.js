@@ -3,23 +3,19 @@ import "../fonts/fonts.css";
 import logo from "./airbnbLogo.svg";
 import search from "./search.svg";
 import styled from "styled-components";
-import { mediaMin, mediaMax } from "../styled";
+import { mediaMin } from "../styled";
 import arrowDown from "../arrowDown.svg";
 
-const Header = styled.header`
+const Header = styled.header.attrs({
+  className: "container"
+})`
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px 8px;
-  ${mediaMin.xl`
-    padding: 16px 80px;
-  `};
   font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
-  margin-left: auto;
-  margin-right: auto;
-  ${mediaMax};
 `;
 
 const Logo = styled.img`

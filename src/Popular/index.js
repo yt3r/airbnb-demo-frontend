@@ -50,7 +50,7 @@ export default () => {
       <SectionHead>
         <H1>Popular reservations around the world</H1>
         <Link href="/popular-all">
-          See all <Arrow />
+          See all<Arrow />
         </Link>
       </SectionHead>
       <Cards>
