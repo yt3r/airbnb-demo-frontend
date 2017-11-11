@@ -1,8 +1,11 @@
 import React from "react";
 import "../fonts/fonts.css";
-import logo from "./Logo.png";
-import search from "./Search.png";
+import logo from "./airbnbLogo.png";
+import search from "./search.png";
 import styled from "styled-components";
+import { mediaMin, mediaMax } from "../styled";
+import arrowDown from "../arrowDown.svg";
+import "flexboxgrid2";
 
 const Header = styled.header`
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
@@ -14,7 +17,7 @@ const Header = styled.header`
   font-weight: 400;
   margin-left: auto;
   margin-right: auto;
-  width: 964px;
+  ${mediaMax};
 `;
 
 const Logo = styled.img`
@@ -22,19 +25,22 @@ const Logo = styled.img`
   height: 32px;
 `;
 
-const Input = styled.input`
+const Input = styled.input.attrs({
+  className: "col-xs-10 col-md-7 col-xl-5"
+})`
   background: url(${search}) no-repeat 16px center;
-  padding-left: 53px;
   border-radius: 4px;
   border: 1px solid rgba(72, 72, 72, 0.2);
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   box-sizing: border-box;
   font-size: 16px;
   line-height: 24px;
-  width: 40%;
   margin-left: 20px;
   height: 48px;
   font-family: inherit;
+  ::placeholder {
+    padding-left: 40px;
+  }
 `;
 
 const Link = styled.a`
@@ -45,13 +51,28 @@ const Link = styled.a`
   padding: 0 8px;
 `;
 
-const Nav = styled.nav`margin-left: auto;`;
+const Nav = styled.nav`
+  display: none;
+  ${mediaMin.lg`
+    display: flex;
+    margin-left: auto;
+  `};
+`;
+
+const NavImg = styled.img.attrs({
+  src: arrowDown,
+  alt: "Navigation"
+})`
+  display: flex;
+  padding-left: 8px;
+  ${mediaMin.lg`display:none;`};
+`;
 
 export default () => {
   return (
     <Header>
       <Logo src={logo} alt="Airbnb logo" />
-
+      <NavImg />
       <Input type="text" placeholder="Try &quot;Miami&quot;" />
 
       <Nav>

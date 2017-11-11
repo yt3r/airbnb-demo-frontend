@@ -1,26 +1,53 @@
 import React from "react";
 import "./fonts/fonts.css";
-import styled from "styled-components";
-import star from "./star.svg";
+import styled, { css } from "styled-components";
 import arrow from "./arrow.svg";
 import scroll from "./scroll.svg";
 import arrowDown from "./arrowDown.svg";
+import "flexboxgrid2";
 
-export const SectionContainerBase = styled.section`
-  margin-right: auto;
-  margin-left: auto;
+export const sizes = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200
+};
+
+export const mediaMax = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${sizes[label]}px) {
+      max-width: ${sizes[label]}px;
+      ${css(...args)};
+    }
+  `;
+  return acc;
+}, {});
+
+export const mediaMin = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${sizes[label]}px) {
+      ${css(...args)};
+    }
+  `;
+  return acc;
+}, {});
+
+export const SectionBase = styled.section.attrs({
+  className: "container"
+})`
   margin-top: 48px;
-  width: 964px;
   font-family: "Circular", Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 700;
   line-height: 24px;
-  display: flex;
+
+  position: relative;
 `;
 
 export const CardBase = styled.a.attrs({
   href: "#"
 })`
-  border-sizing: border-box;
+  box-sizing: border-box;
   text-decoration: none;
   color: rgba(56, 56, 56, 1);
   padding-left: 8px;
@@ -31,33 +58,14 @@ export const H1 = styled.h1`line-height: 34px;`;
 
 export const Img = styled.img`width: 100%;`;
 
-export const Cards = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-left: -8px;
-  margin-right: -8px;
-`;
-
-const Star = styled.img.attrs({
-  src: star,
-  alt: "star"
+export const Cards = styled.div.attrs({
+  className: "row"
 })`
-  padding-right: 4px;
-  height: 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  overflow-x: auto;
 `;
-
-export function Stars() {
-  return (
-    <div>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-    </div>
-  );
-}
 
 export const Rating = styled.div`
   display: flex;
@@ -69,7 +77,7 @@ export const Arrow = styled.img.attrs({
   src: arrow,
   alt: "arrow"
 })`
-  padding-left: 8px;
+
 `;
 
 export const Link = styled.a`
@@ -77,7 +85,7 @@ export const Link = styled.a`
   font-size: 14px;
   font-weight: 400;
   color: rgba(56, 56, 56, 1);
-  align-self: center;
+  margin-left: auto;
 `;
 
 export const ScrollArrow = styled.img.attrs({
@@ -98,8 +106,11 @@ export const Scroll = styled.a`
   border-radius: 50%;
   position: absolute;
   z-index: 100;
-  top: 30%;
+  top: 40%;
   left: 98%;
+  @media (max-width: ${sizes.md}px) {
+    display: none;
+  }
 `;
 
 export const Info = styled.p`
@@ -118,8 +129,8 @@ export const RatingInfo = styled.span`
 
 export const SectionHead = styled.div`
   display: flex;
-  justify-content: space-between;
   box-sizing: border-box;
+  align-items: center;
 `;
 
 export const Dropdown = styled.select`
@@ -136,7 +147,7 @@ export const Dropdown = styled.select`
   background: url(${arrowDown}) no-repeat 90%;
   border: 1px solid rgba(72, 72, 72, 0.2);
   border-radius: 4px;
-  margin-bottom: 16px;
+  margin: 16px 8px 0 8px;
   padding-left: 16px;
   font-family: inherit;
   color: rgba(56, 56, 56, 1);

@@ -4,14 +4,13 @@ import forestTherapy from "./forestTherapy.png";
 import whaleWatching from "./whaleWatching.png";
 import mountain from "./mountain.png";
 import salsaNight from "./salsaNight.png";
-
+import Stars from "../Stars";
 import {
-  SectionContainerBase,
+  SectionBase,
   CardBase,
   H1,
   Img,
   Cards,
-  Stars,
   Rating,
   Arrow,
   Link,
@@ -20,17 +19,20 @@ import {
   SectionHead,
   Scroll
 } from "../styled";
+import "flexboxgrid2";
 
-const Experiences = SectionContainerBase.extend`
+const Experiences = SectionBase.extend`
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const Card = CardBase.extend`flex-basis: 25%;`;
+const Card = CardBase.extend.attrs({
+  className: "col-xs-6 col-md-4 col-xl-3"
+})``;
 
 const Span = styled.span`font-weight: 300;`;
 
-const ExperiencesCard = props => (
+const SecCard = props => (
   <Card>
     <Img src={props.src} alt={props.name} />
     <Info>
@@ -54,30 +56,25 @@ export default () => {
         </Link>
       </SectionHead>
       <Cards>
-        <ExperiencesCard
+        <SecCard
           src={forestTherapy}
           name="Forest therapy"
           price={29}
           rating={44}
         />
-        <ExperiencesCard
+        <SecCard
           src={whaleWatching}
           name="Whale watching"
           price={69}
           rating={46}
         />
-        <ExperiencesCard
+        <SecCard
           src={mountain}
           name="Table Mountain Summit, Cable Car Down"
           price={69}
           rating={44}
         />
-        <ExperiencesCard
-          src={salsaNight}
-          name="Salsa night"
-          price={50}
-          rating={44}
-        />
+        <SecCard src={salsaNight} name="Salsa night" price={50} rating={44} />
         <Scroll />
       </Cards>
     </Experiences>

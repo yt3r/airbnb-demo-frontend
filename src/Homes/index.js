@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Stars from "../Stars";
 import {
-  SectionContainerBase,
+  SectionBase,
   CardBase,
   H1,
   Img,
   Cards,
-  Stars,
   Rating,
   Arrow,
   Link,
@@ -16,18 +16,21 @@ import {
   SectionHead,
   Scroll
 } from "../styled";
+import "flexboxgrid2";
 import home01 from "./home-1.png";
 import home02 from "./home-2.png";
 import home03 from "./home-3.png";
 
-const Homes = SectionContainerBase.extend`
+const Homes = SectionBase.extend`
   flex-direction: column;
   justify-content: space-between;
 `;
 
-const Card = CardBase.extend`flex-basis: 33.3333%;`;
+const Card = CardBase.extend.attrs({
+  className: "col-xs-8 col-md-5 col-xl-4"
+})``;
 
-const HomesCard = props => (
+const SecCard = props => (
   <Card>
     <Img src={props.src} alt={props.name} />
     <Info>
@@ -55,7 +58,7 @@ export default () => {
         </Link>
       </SectionHead>
       <Cards>
-        <HomesCard
+        <SecCard
           src={home01}
           price={89}
           name="La Salentina, see, nature & relax"
@@ -64,7 +67,7 @@ export default () => {
           rating={97}
           status="Superhost"
         />
-        <HomesCard
+        <SecCard
           src={home02}
           price={89}
           name="Your private 3 bedr."
@@ -73,7 +76,7 @@ export default () => {
           rating={161}
           status="Superhost"
         />
-        <HomesCard
+        <SecCard
           src={home03}
           price={200}
           name="Dreamy Tropical Tree House"

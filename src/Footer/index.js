@@ -1,26 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import { SectionContainerBase, Cards, Dropdown } from "../styled";
+import { SectionBase, Cards, Dropdown, mediaMax, mediaMin } from "../styled";
 import logo from "./logo.svg";
 import fb from "./facebook.svg";
 import twitter from "./twitter.svg";
 import ig from "./instagram.svg";
+import "flexboxgrid2";
 
-const Footer = SectionContainerBase.withComponent("footer").extend`
+const Footer = SectionBase.withComponent("footer").extend`
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
-  padding: 16px 80px;
+  padding: 16px 24px;
 `;
 
 const Top = Cards.extend`padding-top: 48px;`;
 
-const Nav = styled.nav`
-  display: flex;
-  flex-basis: 25%;
-  padding-left: 95px;
-  flex-direction: column;
-  box-sizing: border-box;
+const Nav = styled.nav.attrs({
+  className: "col-md-3"
+})`
+  display: none;
+  ${mediaMin.md`
+    display: flex;
+    padding-left: 95px;
+    flex-direction: column;
+    box-sizing: border-box;
+  `};
 `;
 
 const Text = styled.p.attrs({
@@ -43,17 +48,23 @@ const Link = Text.withComponent("a").extend`
 
 const BottomLink = Link.extend`padding-left: 16px;`;
 
-const Form = Nav.withComponent("form").extend`padding-left:0;`;
+const Form = styled.form.attrs({
+  className: "col-xs-12 col-md-3"
+})`
+  display: flex;
+  ${mediaMin.md`flex-direction: column;`};
+`;
 
 const Bottom = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   box-sizing: border-box;
   justify-content: space-between;
   align-content: center;
   margin-top: 48px;
   padding-top: 35px;
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
+  ${mediaMin.md`flex-direction: row;`};
 `;
 
 const Logo = styled.img``;
@@ -66,7 +77,16 @@ const Copyright = styled.div`
 
 const Social = styled.img`padding-left: 12px;`;
 
-const Links = Copyright.extend`justify-content: flex-end;`;
+const Links = Copyright.extend`
+  margin-right: auto;
+  a:first-of-type {
+    padding-left: 0;
+  }
+  ${mediaMin.md`
+    margin-right: 0;
+    margin-left: auto;
+    `};
+`;
 
 export default () => {
   return (
