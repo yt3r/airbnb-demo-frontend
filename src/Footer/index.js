@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { SectionBase, Cards, Dropdown, mediaMax, mediaMin } from "../styled";
+import { SectionBase, Cards, Dropdown, mediaMin } from "../styled";
 import logo from "./logo.svg";
 import fb from "./facebook.svg";
 import twitter from "./twitter.svg";
 import ig from "./instagram.svg";
-import "flexboxgrid2";
 
 const Footer = SectionBase.withComponent("footer").extend`
   flex-direction: column;

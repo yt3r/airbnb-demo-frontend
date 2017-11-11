@@ -11,18 +11,14 @@ import {
   SectionHead,
   Scroll
 } from "../styled";
-import "flexboxgrid2";
 import chumley from "./chumley.png";
 import hanjan from "./hanjan.png";
 import primeMeats from "./primeMeats.png";
 import seaprice from "./seaprice.png";
 
-const Popular = SectionBase.extend`
-  flex-direction: column;
-  justify-content: space-between;
-`;
+const Popular = SectionBase.extend`flex-direction: column;`;
 
-const Card = CardBase.extend.attrs({
+const CardSt = CardBase.extend.attrs({
   className: "col-xs-6 col-md-4 col-xl-3"
 })``;
 
@@ -39,13 +35,13 @@ const Name = styled.p`
 `;
 const Pricing = Name.extend`font-weight: 300;`;
 
-const SecCard = props => (
-  <Card>
+const Card = props => (
+  <CardSt>
     <Img src={props.src} alt={props.name} />
     <Category>{props.category.toUpperCase()}</Category>
     <Name>{props.name}</Name>
     <Pricing>About ${props.price} per person</Pricing>
-  </Card>
+  </CardSt>
 );
 
 export default () => {
@@ -58,25 +54,20 @@ export default () => {
         </Link>
       </SectionHead>
       <Cards>
-        <SecCard
-          src={chumley}
-          name="Chumley's"
-          category="speakeasy"
-          price={60}
-        />
-        <SecCard
+        <Card src={chumley} name="Chumley's" category="speakeasy" price={60} />
+        <Card
           src={hanjan}
           name="Hanjan"
           category="korean gastropub"
           price={50}
         />
-        <SecCard
+        <Card
           src={primeMeats}
           name="Prime Meats"
           category="german american"
           price={55}
         />
-        <SecCard
+        <Card
           src={seaprice}
           name="Seaprice"
           category="fine seafood"

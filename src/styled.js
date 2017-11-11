@@ -1,4 +1,3 @@
-import React from "react";
 import "./fonts/fonts.css";
 import styled, { css } from "styled-components";
 import arrow from "./arrow.svg";
@@ -108,9 +107,9 @@ export const Scroll = styled.a`
   z-index: 100;
   top: 40%;
   left: 98%;
-  @media (max-width: ${sizes.md}px) {
+  ${mediaMin.xl`
     display: none;
-  }
+  `};
 `;
 
 export const Info = styled.p`

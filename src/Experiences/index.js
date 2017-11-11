@@ -19,21 +19,17 @@ import {
   SectionHead,
   Scroll
 } from "../styled";
-import "flexboxgrid2";
 
-const Experiences = SectionBase.extend`
-  flex-direction: column;
-  justify-content: space-between;
-`;
+const Experiences = SectionBase.extend`flex-direction: column;`;
 
-const Card = CardBase.extend.attrs({
+const CardSt = CardBase.extend.attrs({
   className: "col-xs-6 col-md-4 col-xl-3"
 })``;
 
 const Span = styled.span`font-weight: 300;`;
 
-const SecCard = props => (
-  <Card>
+const Card = props => (
+  <CardSt>
     <Img src={props.src} alt={props.name} />
     <Info>
       ${props.price}
@@ -43,7 +39,7 @@ const SecCard = props => (
       <Stars />
       <RatingInfo>{props.rating} reviews</RatingInfo>
     </Rating>
-  </Card>
+  </CardSt>
 );
 
 export default () => {
@@ -56,25 +52,25 @@ export default () => {
         </Link>
       </SectionHead>
       <Cards>
-        <SecCard
+        <Card
           src={forestTherapy}
           name="Forest therapy"
           price={29}
           rating={44}
         />
-        <SecCard
+        <Card
           src={whaleWatching}
           name="Whale watching"
           price={69}
           rating={46}
         />
-        <SecCard
+        <Card
           src={mountain}
           name="Table Mountain Summit, Cable Car Down"
           price={69}
           rating={44}
         />
-        <SecCard src={salsaNight} name="Salsa night" price={50} rating={44} />
+        <Card src={salsaNight} name="Salsa night" price={50} rating={44} />
         <Scroll />
       </Cards>
     </Experiences>
